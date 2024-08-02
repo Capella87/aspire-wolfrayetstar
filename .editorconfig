@@ -1,0 +1,13 @@
+root = true
+
+[*]
+charset = utf-8
+indent_style = space
+indent_size = 4
+insert_final_newline = true
+
+[*.{js,jsx,ts,tsx,css,scss,html,json,yaml,yml}]
+indent_size = 2
+
+[*.{sln,cshtml,razor}]
+charset = utf-8-bom
