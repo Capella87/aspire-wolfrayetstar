@@ -25,9 +25,20 @@ public class ApiAppClient : IApiAppClientService
         return forecasts ?? [];
     }
 
+    // Remember the record
+    // public record SummaryRequest(string? Url, string VideoLanguageCode, string? SummaryLanguageCode);
     public async Task<string> SummariseAsync(string url, string videoLanguageCode, string resultLanguageCode)
     {
-        using var response = await _httpClient.PostAsJsonAsync("summarise", new { url, videoLanguageCode, resultLanguageCode }).ConfigureAwait(false);
+        var requestData = new
+        {
+            Url = url,
+            VideoLanguageCode = videoLanguageCode,
+            SummaryLanguageCode = resultLanguageCode
+        };
+
+        using var response = await _httpClient.PostAsJsonAsync(
+            "summarise",
+            requestData).ConfigureAwait(false);
         var summary = await response.Content.ReadAsStringAsync().ConfigureAwait(false);
 
         return summary;

@@ -6,7 +6,7 @@ using OpenAI.Chat;
 
 namespace WolfRayetStar.Backend.Services;
 
-public record SummaryRequest(string Url, string VideoLanguageCode, string? SummaryLanguageCode);
+public record SummaryRequest(string? Url, string VideoLanguageCode, string? SummaryLanguageCode);
 
 public class YouTubeSummariserService
 {

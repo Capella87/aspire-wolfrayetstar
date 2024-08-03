@@ -1,15 +1,16 @@
+using Microsoft.Extensions.Hosting;
 using WolfRayetStar.Front.Components;
 using WolfRayetStar.Front.Services;
 
 var builder = WebApplication.CreateBuilder(args);
-
 builder.AddServiceDefaults();
+builder.AddRedisOutputCache("cache");
 
 // Add services to the container.
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
 
-builder.Services.AddHttpClient<IApiAppClientService, ApiAppClient>(p => p.BaseAddress = new Uri("https+http://apiapp"));
+builder.Services.AddHttpClient<IApiAppClientService, ApiAppClient>(p => p.BaseAddress = new Uri("https+http://wolfrayetstar-backend"));
 
 var app = builder.Build();
 
