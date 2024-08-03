@@ -16,4 +16,8 @@
     <Folder Include="wwwroot\css\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Aspire.StackExchange.Redis.OutputCaching" Version="8.1.0" />
+  </ItemGroup>
+
 </Project>
