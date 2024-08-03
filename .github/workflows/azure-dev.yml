@@ -45,6 +45,11 @@ jobs:
           $appsettings.OpenAI.ApiKey = "${{ secrets.AZURE_OPENAI_API_KEY }}"
           $appsettings.OpenAI.DeploymentName = "${{ secrets.AZURE_OPENAI_DEPLOYMENT_NAME }}"
           $appsettings | ConvertTo-Json -Depth 100 | Out-File -FilePath ./aspire-wolfrayetstar.AppHost/appsettings.json -Encoding utf8 -Force
+          $appsettings2 = Get-Content -Path ./backend/appsettings.json | ConvertFrom-Json
+          $appsettings2.OpenAI.Endpoint = "${{ secrets.AZURE_OPENAI_ENDPOINT }}"
+          $appsettings2.OpenAI.ApiKey = "${{ secrets.AZURE_OPENAI_API_KEY }}"
+          $appsettings2.OpenAI.DeploymentName = "${{ secrets.AZURE_OPENAI_DEPLOYMENT_NAME }}"
+          $appsettings2 | ConvertTo-Json -Depth 100 | Out-File -FilePath ./backend/appsettings.json -Encoding utf8 -Force
 
       - name: Install azd
         uses: Azure/setup-azd@v1.0.0
