@@ -21,7 +21,7 @@ builder.Services.AddScoped<AzureOpenAIClient>(s =>
 {
     var config = s.GetRequiredService<IConfiguration>();
     var endpoint = new Uri(config["OpenAI:Endpoint"]);
-    var credentialKey = new AzureKeyCredential(config["OpenAI:Key"]);
+    var credentialKey = new AzureKeyCredential(config["OpenAI:ApiKey"]);
     var azClient = new AzureOpenAIClient(endpoint, credentialKey);
 
     return azClient;
