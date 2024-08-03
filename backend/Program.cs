@@ -1,3 +1,14 @@
+using Aliencube.YouTubeSubtitlesExtractor;
+using Aliencube.YouTubeSubtitlesExtractor.Abstractions;
+using Aliencube.YouTubeSubtitlesExtractor.Models;
+
+using Azure;
+using Azure.AI.OpenAI;
+
+using Microsoft.AspNetCore.Mvc;
+
+using OpenAI.Chat;
+
 var builder = WebApplication.CreateBuilder(args);
 
 builder.AddServiceDefaults();
