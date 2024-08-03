@@ -1,5 +1,3 @@
-using System.Runtime.CompilerServices;
-
 namespace WolfRayetStar.Front.Services;
 
 public interface IApiAppClientService

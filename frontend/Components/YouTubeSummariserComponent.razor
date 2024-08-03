@@ -1,7 +1,6 @@
-﻿@page "/ytsummariser"
+﻿@using WolfRayetStar.Front.Services
 @inject IApiAppClientService ApiApp
 @inject IJSRuntime JSRuntime
-@rendermode InteractiveServer
 
 <PageTitle>YouTube Summariser - Wolf-Rayet Star</PageTitle>
 
@@ -11,7 +10,7 @@
     <div class="row">
         <div class="col-7 mb-3">
             <label for="youtube-link" class="form-label"><strong>YouTube URL</strong></label>
-            <input class="form-control" id="youtube-link" placeholder="YouTube URL" @bind="url" />
+            <input id="youtube-link" class="form-control" placeholder="YouTube URL" @bind="url" />
         </div>
         <div class="col mb-3">
             <label for="video-language-code" class="form-label">Video Language Code</label>
@@ -47,14 +46,14 @@
     <div class="row">
         <div class="container">
             <div class="d-flex justify-content-between">
-                <button type="button" class="col-4 btn btn-primary mx-auto" id="summary" @onclick="SummariseAsync"><i class="bi bi-fire"></i> Summary</button>
+                <button id="summary" type="button" class="col-4 btn btn-primary mx-auto" @onclick="SummariseAsync"><i class="bi bi-fire"></i> Summary</button>
                 <button type="button" class="col-2 btn btn-secondary mx-auto" id="reset" @onclick="ClearResultAsync"><i class="bi bi-arrow-clockwise"></i> Reset</button>
             </div>
         </div>
     </div>
     <div class="row mb-3">
-        <label for="summary" class="form-label"><strong>Summary</strong></label>
-        <textarea class="form-control" id="summary" rows="10" placeholder="Result will show here" readonly>@result</textarea>
+        <label for="result" class="form-label"><strong>Summary</strong></label>
+        <textarea id="result" class="form-control" rows="10" placeholder="Result will show here" readonly>@result</textarea>
     </div>
 </div>
 
