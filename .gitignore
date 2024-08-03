@@ -365,3 +365,4 @@ FodyWeavers.xsd
 /wwwroot/lib/
 
 **/appsettings.Development.json
+.azure
