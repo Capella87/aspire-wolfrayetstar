@@ -1,4 +1,5 @@
 using WolfRayetStar.Front.Components;
+using WolfRayetStar.Front.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -7,6 +8,8 @@ builder.AddServiceDefaults();
 // Add services to the container.
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
+
+builder.Services.AddHttpClient<IApiAppClientService, ApiAppClient>(p => p.BaseAddress = new Uri("https+http://apiapp"));
 
 var app = builder.Build();
 
